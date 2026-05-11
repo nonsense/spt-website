@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPT — Sofia Public Transport</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <style>
+        :root {
+            color-scheme: light dark;
+            --bg: #ffffff;
+            --bg2: #f5f5f7;
+            --text: #1d1d1f;
+            --secondary: #6e6e73;
+            --border: #d2d2d7;
+            --link: #0071e3;
+            --accent: #0071e3;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #000000;
+                --bg2: #1d1d1f;
+                --text: #f5f5f7;
+                --secondary: #a1a1a6;
+                --border: #424245;
+                --link: #64b5f6;
+                --accent: #64b5f6;
+            }
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+        }
+
+        /* ── Site Header ── */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            height: 56px;
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .site-brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .brand-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 7px;
+        }
+
+        .site-nav {
+            display: flex;
+            gap: 4px;
+        }
+
+        .site-nav a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 8px;
+            transition: background .15s, color .15s;
+        }
+
+        .site-nav a:hover {
+            color: var(--text);
+            background: var(--bg2);
+        }
+
+        .site-nav a[aria-current="page"] {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .lang-toggle {
+            display: flex;
+            background: var(--bg2);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .lang-toggle button {
+            background: none;
+            border: none;
+            padding: 6px 14px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--secondary);
+            font-family: inherit;
+            transition: background .15s, color .15s;
+        }
+
+        .lang-toggle button.active {
+            background: var(--text);
+            color: var(--bg);
+        }
+
+        /* ── Hamburger Menu ── */
+        .menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 101;
+        }
+        .menu-btn span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: transform .2s, opacity .2s;
+        }
+        .menu-btn.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+        .menu-btn.open span:nth-child(2) {
+            opacity: 0;
+        }
+        .menu-btn.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        .header-dropdown {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* ── Hero ── */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 60px 24px 64px;
+            gap: 24px;
+        }
+
+        .hero-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 27%;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.6rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+            color: var(--secondary);
+            max-width: 480px;
+        }
+
+        .store-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--text);
+            color: var(--bg);
+            text-decoration: none;
+            padding: 13px 24px;
+            border-radius: 14px;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: opacity .15s;
+        }
+        .store-btn:hover { opacity: 0.82; }
+        .store-btn svg { flex-shrink: 0; }
+
+        @media (max-width: 480px) {
+            .store-btn {
+                padding: 11px 18px;
+                font-size: 0.9rem;
+                border-radius: 12px;
+            }
+        }
+
+        /* ── Features ── */
+        .features {
+            background: var(--bg2);
+            padding: 72px 24px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: var(--bg);
+            border-radius: 18px;
+            padding: 28px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            color: var(--secondary);
+            line-height: 1.55;
+        }
+
+        /* ── Screenshots ── */
+        .screenshots {
+            padding: 72px 24px;
+            background: #ffffff;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(1.6rem, 4vw, 2.4rem);
+            font-weight: 700;
+            letter-spacing: -0.015em;
+            margin-bottom: 48px;
+        }
+
+        .screenshots-scroll {
+            display: flex;
+            gap: 32px;
+            overflow-x: scroll;
+            padding: 20px 32px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            background-color: #ffffff;
+        }
+        .screenshots-scroll::-webkit-scrollbar { display: none; }
+
+        .phone-frame {
+            flex-shrink: 0;
+            scroll-snap-align: start;
+            position: relative;
+            background: #1c1c1e;
+            border-radius: 48px;
+            padding: 14px;
+            box-shadow: none;
+        }
+
+        .phone-frame::before {
+            content: '';
+            position: absolute;
+            top: 26px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 88px;
+            height: 28px;
+            background: #000;
+            border-radius: 20px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .phone-frame img {
+            height: 520px;
+            width: auto;
+            border-radius: 34px;
+            display: block;
+        }
+
+        /* ── Footer ── */
+        footer {
+            background: var(--bg2);
+            border-top: 1px solid var(--border);
+            padding: 32px 24px;
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--secondary);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+
+        footer a {
+            color: var(--text);
+            text-decoration: none;
+        }
+        footer a:visited {
+            color: var(--text);
+        }
+        footer a:hover { text-decoration: underline; }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 900px) {
+            .features-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .phone-frame {
+                border-radius: 38px;
+                padding: 12px;
+            }
+            .phone-frame img {
+                height: 400px;
+                border-radius: 26px;
+            }
+            .hero {
+                padding: 40px 20px 48px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .phone-frame {
+                border-radius: 32px;
+                padding: 10px;
+            }
+            .phone-frame img {
+                height: 320px;
+                border-radius: 22px;
+            }
+            .phone-frame::before {
+                width: 70px;
+                height: 22px;
+                top: 20px;
+            }
+            .site-header {
+                padding: 0 12px;
+            }
+            .menu-btn {
+                display: flex;
+            }
+            .header-dropdown {
+                display: none;
+                position: fixed;
+                top: 56px;
+                left: 0;
+                right: 0;
+                background: var(--bg);
+                border-bottom: 1px solid var(--border);
+                flex-direction: column;
+                padding: 16px 20px 20px;
+                gap: 16px;
+                box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+                z-index: 99;
+            }
+            .header-dropdown.open {
+                display: flex;
+            }
+            .site-nav {
+                flex-direction: column;
+                width: 100%;
+                gap: 2px;
+            }
+            .site-nav a {
+                padding: 10px 12px;
+                font-size: 0.9rem;
+                width: 100%;
+                border-radius: 10px;
+            }
+            .lang-toggle {
+                align-self: flex-start;
+            }
+            .hero {
+                padding: 32px 16px 40px;
+                gap: 18px;
+            }
+            .hero h1 {
+                font-size: clamp(1.6rem, 7vw, 2rem);
+            }
+            .hero p {
+                max-width: 100%;
+            }
+            .features {
+                padding: 48px 16px;
+            }
+            .screenshots {
+                padding: 48px 16px;
+            }
+            .section-title {
+                margin-bottom: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Site Header -->
+<header class="site-header">
+    <a class="site-brand" href="index.html">
+        <img src="icon-256.png" alt="" class="brand-icon">
+        <span>SPT</span>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+    </button>
+    <div class="header-dropdown" id="headerDropdown">
+        <nav class="site-nav">
+            <a href="index.html" aria-current="page" data-en="Home" data-bg="Начало">Home</a>
+            <a href="support.html" data-en="Support" data-bg="Поддръжка">Support</a>
+            <a href="privacy.html" data-en="Privacy" data-bg="Поверителност">Privacy</a>
+        </nav>
+        <div class="lang-toggle">
+            <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+            <button id="btn-bg" onclick="setLang('bg')">BG</button>
+        </div>
+    </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+    <img src="icon-512.png" alt="SPT app icon" class="hero-icon">
+    <h1 data-en="Sofia Public Transport" data-bg="Градски Транспорт София">Sofia Public Transport</h1>
+    <p data-en="All public transport vehicles in real time on an interactive map."
+       data-bg="Всички пътни превозни средства на градския транспорт в реално време върху интерактивна карта.">All public transport vehicles in real time on an interactive map.</p>
+    <a href="https://apps.apple.com/app/spt-sofia-public-transport/id6670527498" class="store-btn">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.473 1c.09 1.226-.354 2.427-1.054 3.296-.712.884-1.876 1.57-3.017 1.478-.115-1.196.406-2.44 1.062-3.21C12.19 1.658 13.44 1.04 14.473 1ZM18.5 15.28c-.537 1.17-1.184 2.253-2.128 3.327-.718.832-1.46 1.667-2.565 1.685-1.082.017-1.431-.643-2.668-.643-1.238 0-1.629.624-2.655.66-1.062.037-1.872-.9-2.597-1.728-1.42-1.637-2.51-4.127-2.532-6.527-.015-1.218.22-2.418.842-3.435.83-1.363 2.312-2.289 3.917-2.316 1.07-.02 2.08.72 2.734.72.655 0 1.883-.89 3.17-.758.54.022 2.057.218 3.033 1.644l-.073.046c-.515.316-1.93 1.184-1.912 3.065.02 2.244 1.968 2.99 1.989 2.998l-.55 1.263Z"/>
+        </svg>
+        <span data-en="Download on the App Store" data-bg="Изтеглете от App Store">Download on the App Store</span>
+    </a>
+</section>
+
+<!-- Features -->
+<section class="features">
+    <div class="features-grid">
+        <div class="feature-card">
+            <h3 data-en="Live Map" data-bg="Карта на живо">Live Map</h3>
+            <p data-en="See all buses, trams, trolleybuses, and metro moving in real time across the city."
+               data-bg="Вижте всички автобуси, трамваи, тролейбуси и метро в реално движение из целия град.">See all buses, trams, trolleybuses, and metro moving in real time across the city.</p>
+        </div>
+        <div class="feature-card">
+            <h3 data-en="Nearby Stops" data-bg="Близки Спирки">Nearby Stops</h3>
+            <p data-en="Find stops near you, with walking distance and upcoming trips."
+               data-bg="Намерете спирки в близост до вас, с пешеходно разстояние и предстоящи курсове.">Find stops near you, with walking distance and upcoming trips.</p>
+        </div>
+        <div class="feature-card">
+            <h3 data-en="All Routes" data-bg="Всички Линии">All Routes</h3>
+            <p data-en="Browse all lines — metro, tram, bus, and trolleybus — and track any vehicle live."
+               data-bg="Разгледайте всичките линии — метро, трамвай, автобус и тролейбус — и проследете всяко превозно средство.">Browse all lines — metro, tram, bus, and trolleybus — and track any vehicle live.</p>
+        </div>
+        <div class="feature-card">
+            <h3 data-en="Favourites" data-bg="Любими">Favourites</h3>
+            <p data-en="Save your most-used lines for one-tap access to timetables and real-time positions."
+               data-bg="Запазете любимите си линии за бърз достъп до разписания и позиции в реално време.">Save your most-used lines for one-tap access to timetables and real-time positions.</p>
+        </div>
+        <div class="feature-card">
+            <h3 data-en="Real-time Delays" data-bg="Закъснения в реално време">Real-time Delays</h3>
+            <p data-en="Real-time delay information so you never miss a connection."
+               data-bg="Информация за закъснения в реално време, за да не изпускате връзките си.">Real-time delay information so you never miss a connection.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Screenshots -->
+<section class="screenshots">
+    <h2 class="section-title" data-en="The app in action" data-bg="Приложението в действие">The app in action</h2>
+    <div class="screenshots-scroll">
+        <div class="phone-frame"><img src="screen1.png" alt="Live map with metro stop detail"></div>
+        <div class="phone-frame"><img src="screen2.png" alt="Metro departures list"></div>
+        <div class="phone-frame"><img src="screen3.png" alt="Tram route with real-time delay"></div>
+        <div class="phone-frame"><img src="screen4.png" alt="Favourites view"></div>
+        <div class="phone-frame"><img src="screen5.png" alt="Nearby stops departures"></div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-links">
+        <a href="privacy.html" data-en="Privacy Policy" data-bg="Политика за поверителност">Privacy Policy</a>
+        <a href="support.html" data-en="Support" data-bg="Поддръжка">Support</a>
+    </div>
+    <span data-en="© 2026 SPT — Sofia Public Transport" data-bg="© 2026 SPT — Градски Транспорт София">© 2026 SPT — Sofia Public Transport</span>
+</footer>
+
+<script>
+    function setLang(lang) {
+        document.documentElement.lang = lang;
+        document.querySelectorAll('[data-en]').forEach(el => {
+            el.textContent = el.dataset[lang];
+        });
+        document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+        document.getElementById('btn-bg').classList.toggle('active', lang === 'bg');
+        localStorage.setItem('lang', lang);
+    }
+
+    const saved = localStorage.getItem('lang');
+    if (saved && saved !== 'en') setLang(saved);
+
+    // Hamburger menu toggle
+    (function() {
+        const btn = document.getElementById('menuBtn');
+        const dropdown = document.getElementById('headerDropdown');
+        if (!btn || !dropdown) return;
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            this.classList.toggle('open');
+            dropdown.classList.toggle('open');
+        });
+        // Close menu when tapping a nav link
+        dropdown.querySelectorAll('.site-nav a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                btn.classList.remove('open');
+                dropdown.classList.remove('open');
+            });
+        });
+        // Close menu when tapping outside
+        document.addEventListener('click', function(e) {
+            if (!btn.contains(e.target) && !dropdown.contains(e.target)) {
+                btn.classList.remove('open');
+                dropdown.classList.remove('open');
+            }
+        });
+    })();
+</script>
+
+</body>
+</html>
