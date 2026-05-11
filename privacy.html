@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — SPT</title>
+    <style>
+        :root {
+            color-scheme: light dark;
+            --bg: #ffffff;
+            --text: #1d1d1f;
+            --secondary: #6e6e73;
+            --border: #d2d2d7;
+            --link: #0071e3;
+            --pill-bg: #f0f0f2;
+            --pill-active-bg: #0071e3;
+            --pill-active-text: #fff;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1d1d1f;
+                --text: #f5f5f7;
+                --secondary: #a1a1a6;
+                --border: #424245;
+                --link: #64b5f6;
+                --pill-bg: #2c2c2e;
+                --pill-active-bg: #64b5f6;
+                --pill-active-text: #1d1d1f;
+            }
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 40px 24px;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        h1 { font-size: 28px; margin-bottom: 8px; }
+        h2 { font-size: 20px; margin-top: 32px; }
+        .date { color: var(--secondary); font-size: 14px; margin-bottom: 32px; }
+        a { color: var(--link); text-decoration: none; }
+        hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+        ul { padding-left: 20px; margin: 8px 0; }
+        li { margin: 4px 0; }
+        code { font-size: 0.9em; background: var(--pill-bg); padding: 1px 5px; border-radius: 4px; }
+
+        .lang-toggle {
+            display: inline-flex;
+            background: var(--pill-bg);
+            border-radius: 20px;
+            padding: 2px;
+            margin-bottom: 32px;
+        }
+        .lang-toggle button {
+            background: none;
+            border: none;
+            padding: 6px 16px;
+            border-radius: 18px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            color: var(--text);
+            font-family: inherit;
+            transition: all 0.15s;
+        }
+        .lang-toggle button.active {
+            background: var(--pill-active-bg);
+            color: var(--pill-active-text);
+        }
+        .lang-content { display: none; }
+        .lang-content.show { display: block; }
+    </style>
+</head>
+<body>
+    <div class="lang-toggle">
+        <button id="btn-en" class="active" onclick="switchLang('en')">English</button>
+        <button id="btn-bg" onclick="switchLang('bg')">Български</button>
+    </div>
+
+    <!-- English -->
+    <div lang="en" class="lang-content show">
+        <h1>Privacy Policy</h1>
+        <p class="date">Last updated: May 11, 2026</p>
+
+        <p>SPT — Sofia Public Transport is an independent iOS app for Sofia public transport information. This policy explains how the app handles data.</p>
+
+        <h2>Data the app does not collect</h2>
+        <p>SPT does not collect, store, or transmit any personal information. There is no account system, no sign-in, and no user profile of any kind.</p>
+        <p>We do not use analytics frameworks, crash reporting tools, advertising SDKs, or any third-party services that could collect data on our behalf.</p>
+
+        <h2>Location</h2>
+        <p>The app may request access to your device location solely to show nearby transit stops and calculate walking distances. Location data is processed entirely on your device and is never stored or sent anywhere — not to our servers (we don't have any) and not to any third party.</p>
+        <p>You can deny location access and still use all other features of the app.</p>
+
+        <h2>Network requests</h2>
+        <p>The app downloads public transit data from Sofia Traffic's GTFS feeds hosted at <code>gtfs.sofiatraffic.bg</code>. These requests are anonymous — the app sends no user identifiers, device identifiers, or personal data in any network request.</p>
+        <p>The data downloaded includes:</p>
+        <ul>
+            <li>Static schedule data (routes, stops, trips, stop times) — imported once and stored in a local on-device database</li>
+            <li>Real-time vehicle positions and trip updates — polled periodically and held in memory only, not persisted</li>
+        </ul>
+
+        <h2>Local storage</h2>
+        <p>The following data is stored exclusively on your device and never leaves it:</p>
+        <ul>
+            <li>GTFS schedule data in a local SQLite database</li>
+            <li>Your favourite line selections in UserDefaults</li>
+            <li>Whether the favourites filter is enabled in UserDefaults</li>
+        </ul>
+
+        <h2>Children</h2>
+        <p>The app does not knowingly collect data from anyone, including children under 13. All displayed data is public transit information from official Sofia municipal feeds.</p>
+
+        <h2>Changes to this policy</h2>
+        <p>If this policy changes, the updated version will be posted here. The app does not have a mechanism to push policy updates.</p>
+
+        <h2>Contact</h2>
+        <p>For questions about this privacy policy, email <a href="mailto:anton.evangelatov@gmail.com">anton.evangelatov@gmail.com</a>.</p>
+
+        <hr>
+        <p style="color: var(--secondary); font-size: 13px;">SPT is an independent app and is not affiliated with or endorsed by Sofia Urban Mobility Centre, Sofia Municipality, or Sofia Traffic.</p>
+    </div>
+
+    <!-- Bulgarian -->
+    <div lang="bg" class="lang-content">
+        <h1>Политика за поверителност</h1>
+        <p class="date">Последна актуализация: 11 май 2026 г.</p>
+
+        <p>SPT — Sofia Public Transport е независимо iOS приложение за информация за градския транспорт в София. Тази политика обяснява как приложението обработва данните.</p>
+
+        <h2>Данни, които приложението не събира</h2>
+        <p>SPT не събира, не съхранява и не предава никаква лична информация. Няма система за акаунти, няма вход и няма потребителски профил от какъвто и да е вид.</p>
+        <p>Не използваме рамки за анализ, инструменти за докладване на грешки, рекламни SDK или каквито и да е услуги на трети страни, които биха могли да събират данни от наше име.</p>
+
+        <h2>Локация</h2>
+        <p>Приложението може да поиска достъп до локацията на устройството ви единствено за да покаже близки спирки и да изчисли разстояния за ходене пеша. Данните за локацията се обработват изцяло на устройството ви и никога не се съхраняват или изпращат наникъде — нито към наши сървъри (нямаме такива), нито към трета страна.</p>
+        <p>Можете да откажете достъп до локация и пак да използвате всички останали функции на приложението.</p>
+
+        <h2>Мрежови заявки</h2>
+        <p>Приложението изтегля публични данни за градския транспорт от GTFS каналите на Sofia Traffic, хоствани на <code>gtfs.sofiatraffic.bg</code>. Тези заявки са анонимни — приложението не изпраща потребителски идентификатори, идентификатори на устройство или лични данни в нито една мрежова заявка.</p>
+        <p>Изтеглените данни включват:</p>
+        <ul>
+            <li>Статични данни за разписания (линии, спирки, курсове, часове на спирки) — импортират се еднократно и се съхраняват в локална база данни на устройството</li>
+            <li>Позиции на превозни средства в реално време и актуализации на пътувания — запитват се периодично и се пазят само в паметта, без да се записват трайно</li>
+        </ul>
+
+        <h2>Локално съхранение</h2>
+        <p>Следните данни се съхраняват изключително на вашето устройство и никога не го напускат:</p>
+        <ul>
+            <li>GTFS данни за разписания в локална SQLite база данни</li>
+            <li>Вашите избрани любими линии в UserDefaults</li>
+            <li>Дали филтърът за любими линии е включен в UserDefaults</li>
+        </ul>
+
+        <h2>Деца</h2>
+        <p>Приложението не събира съзнателно данни от никого, включително от деца под 13 години. Всички показвани данни са публична информация за градския транспорт от официалните общински канали на София.</p>
+
+        <h2>Промени в тази политика</h2>
+        <p>Ако тази политика се промени, актуализираната версия ще бъде публикувана тук. Приложението няма механизъм за изпращане на известия за промени в политиката.</p>
+
+        <h2>Контакт</h2>
+        <p>За въпроси относно тази политика за поверителност, пишете на <a href="mailto:anton.evangelatov@gmail.com">anton.evangelatov@gmail.com</a>.</p>
+
+        <hr>
+        <p style="color: var(--secondary); font-size: 13px;">SPT е независимо приложение и не е свързано с или одобрено от Център за градска мобилност, Столична община или Sofia Traffic.</p>
+    </div>
+
+    <script>
+        function switchLang(lang) {
+            document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('show'));
+            document.querySelector(`.lang-content[lang="${lang}"]`).classList.add('show');
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            document.getElementById('btn-bg').classList.toggle('active', lang === 'bg');
+            document.documentElement.lang = lang;
+            if (window.location.hash !== '#' + lang) {
+                history.replaceState(null, '', '#' + lang);
+            }
+        }
+        const hash = window.location.hash.replace('#', '');
+        if (hash === 'bg') switchLang('bg');
+    </script>
+</body>
+</html>
