@@ -312,19 +312,77 @@
             margin-bottom: 48px;
         }
 
+        .screenshots-carousel {
+            position: relative;
+            width: min(1225px, calc(100vw - 48px));
+            margin: 0 auto;
+        }
+
         .screenshots-scroll {
             display: flex;
             gap: 32px;
-            overflow-x: scroll;
-            padding: 20px 32px 40px;
-            max-width: 1200px;
-            margin: 0 auto;
+            overflow-x: auto;
+            padding: 20px 32px 44px;
+            width: 100%;
             scroll-snap-type: x mandatory;
+            scroll-padding-inline: 32px;
             -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
+            overscroll-behavior-x: contain;
+            scrollbar-width: thin;
+            scrollbar-color: #c7c7cc transparent;
             background-color: #ffffff;
+            cursor: grab;
+            user-select: none;
         }
-        .screenshots-scroll::-webkit-scrollbar { display: none; }
+        .screenshots-scroll:active {
+            cursor: grabbing;
+        }
+        .screenshots-scroll::-webkit-scrollbar {
+            height: 8px;
+        }
+        .screenshots-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .screenshots-scroll::-webkit-scrollbar-thumb {
+            background: #c7c7cc;
+            border-radius: 999px;
+        }
+
+        .screenshots-arrow {
+            position: absolute;
+            top: 50%;
+            z-index: 4;
+            display: grid;
+            place-items: center;
+            width: 44px;
+            height: 44px;
+            border: 1px solid rgba(142, 142, 147, 0.24);
+            border-radius: 999px;
+            background: rgba(242, 242, 247, 0.86);
+            color: #8e8e93;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            transform: translateY(-50%);
+            cursor: pointer;
+            transition: background .15s, color .15s, opacity .15s, transform .15s;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .screenshots-arrow:hover {
+            background: rgba(229, 229, 234, 0.95);
+            color: #636366;
+            transform: translateY(-50%) scale(1.04);
+        }
+        .screenshots-arrow:disabled {
+            opacity: 0.35;
+            cursor: default;
+            transform: translateY(-50%);
+        }
+        .screenshots-arrow.prev { left: -18px; }
+        .screenshots-arrow.next { right: -18px; }
+        .screenshots-arrow svg {
+            width: 20px;
+            height: 20px;
+        }
 
         .phone-frame {
             flex-shrink: 0;
@@ -350,11 +408,19 @@
             pointer-events: none;
         }
 
+        .phone-frame picture,
+        .phone-frame img {
+            display: block;
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-user-drag: none;
+            pointer-events: none;
+        }
+
         .phone-frame img {
             height: 520px;
             width: auto;
             border-radius: 34px;
-            display: block;
         }
 
         /* ── Footer ── */
@@ -396,6 +462,12 @@
             .features-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            .screenshots-arrow {
+                width: 38px;
+                height: 38px;
+            }
+            .screenshots-arrow.prev { left: 2px; }
+            .screenshots-arrow.next { right: 2px; }
             .phone-frame {
                 border-radius: 38px;
                 padding: 12px;
@@ -578,12 +650,24 @@
 <!-- Screenshots -->
 <section class="screenshots">
     <h2 class="section-title" data-en="The app in action" data-bg="Приложението в действие">The app in action</h2>
-    <div class="screenshots-scroll">
-        <div class="phone-frame"><img src="screen1.png" alt="Live map with metro stop detail"></div>
-        <div class="phone-frame"><img src="screen2.png" alt="Metro departures list"></div>
-        <div class="phone-frame"><img src="screen3.png" alt="Tram route with real-time delay"></div>
-        <div class="phone-frame"><img src="screen4.png" alt="Favourites view"></div>
-        <div class="phone-frame"><img src="screen5.png" alt="Nearby stops departures"></div>
+    <div class="screenshots-carousel">
+        <button class="screenshots-arrow prev" type="button" aria-label="Scroll screenshots left" data-scroll-screenshots="prev">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <div class="screenshots-scroll">
+            <div class="phone-frame"><picture><source srcset="screen1.webp" type="image/webp"><img src="screen1.png" width="828" height="1800" loading="lazy" decoding="async" alt="Live map with stop departures"></picture></div>
+            <div class="phone-frame"><picture><source srcset="screen2.webp" type="image/webp"><img src="screen2.png" width="828" height="1800" loading="lazy" decoding="async" alt="Nearby stops list with upcoming departures"></picture></div>
+            <div class="phone-frame"><picture><source srcset="screen3.webp" type="image/webp"><img src="screen3.png" width="828" height="1800" loading="lazy" decoding="async" alt="Stop detail with transit departures"></picture></div>
+            <div class="phone-frame"><picture><source srcset="screen4.webp" type="image/webp"><img src="screen4.png" width="828" height="1800" loading="lazy" decoding="async" alt="Timetable schedule for a trolleybus route"></picture></div>
+            <div class="phone-frame"><picture><source srcset="screen5.webp" type="image/webp"><img src="screen5.png" width="828" height="1800" loading="lazy" decoding="async" alt="Live vehicle trip progress"></picture></div>
+            <div class="phone-frame"><picture><source srcset="screen6.webp" type="image/webp"><img src="screen6.png" width="828" height="1800" loading="lazy" decoding="async" alt="Favourite transit lines"></picture></div>
+            <div class="phone-frame"><picture><source srcset="screen7.webp" type="image/webp"><img src="screen7.png" width="828" height="1800" loading="lazy" decoding="async" alt="Route planner with destination search"></picture></div>
+            <div class="phone-frame"><picture><source srcset="screen8.webp" type="image/webp"><img src="screen8.png" width="828" height="1800" loading="lazy" decoding="async" alt="Route planner results with transit options"></picture></div>
+            <div class="phone-frame"><picture><source srcset="screen9.webp" type="image/webp"><img src="screen9.png" width="828" height="1800" loading="lazy" decoding="async" alt="Walking route on the live map"></picture></div>
+        </div>
+        <button class="screenshots-arrow next" type="button" aria-label="Scroll screenshots right" data-scroll-screenshots="next">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
     </div>
 </section>
 
@@ -633,6 +717,73 @@
                 btn.classList.remove('open');
                 dropdown.classList.remove('open');
             }
+        });
+    })();
+
+    // Make the screenshot strip draggable with a mouse as well as scrollable.
+    (function() {
+        const strip = document.querySelector('.screenshots-scroll');
+        const prev = document.querySelector('[data-scroll-screenshots="prev"]');
+        const next = document.querySelector('[data-scroll-screenshots="next"]');
+        if (!strip) return;
+        let isDown = false;
+        let startX = 0;
+        let scrollLeft = 0;
+
+        function updateArrows() {
+            const maxScroll = strip.scrollWidth - strip.clientWidth;
+            if (prev) prev.disabled = strip.scrollLeft <= 2;
+            if (next) next.disabled = strip.scrollLeft >= maxScroll - 2;
+        }
+
+        function scrollScreenshots(direction) {
+            const firstFrame = strip.querySelector('.phone-frame');
+            const gap = parseFloat(getComputedStyle(strip).gap) || 0;
+            const step = firstFrame ? (firstFrame.offsetWidth + gap) * 2 : strip.clientWidth * 0.5;
+            strip.scrollBy({
+                left: direction * step,
+                behavior: 'smooth'
+            });
+        }
+
+        if (prev) prev.addEventListener('click', function() { scrollScreenshots(-1); });
+        if (next) next.addEventListener('click', function() { scrollScreenshots(1); });
+
+        strip.addEventListener('scroll', updateArrows, { passive: true });
+        window.addEventListener('resize', updateArrows);
+        updateArrows();
+
+        strip.addEventListener('dragstart', function(e) {
+            e.preventDefault();
+        });
+
+        strip.addEventListener('pointerdown', function(e) {
+            if (e.pointerType !== 'mouse') return;
+            e.preventDefault();
+            isDown = true;
+            startX = e.clientX;
+            scrollLeft = strip.scrollLeft;
+            strip.setPointerCapture(e.pointerId);
+        });
+
+        strip.addEventListener('pointermove', function(e) {
+            if (!isDown) return;
+            e.preventDefault();
+            strip.scrollLeft = scrollLeft - (e.clientX - startX);
+        });
+
+        function stopDrag(e) {
+            isDown = false;
+            updateArrows();
+            if (strip.hasPointerCapture && strip.hasPointerCapture(e.pointerId)) {
+                strip.releasePointerCapture(e.pointerId);
+            }
+        }
+
+        strip.addEventListener('pointerup', stopDrag);
+        strip.addEventListener('pointercancel', stopDrag);
+        strip.addEventListener('pointerleave', function(e) {
+            if (isDown) stopDrag(e);
         });
     })();
 </script>
