@@ -739,7 +739,8 @@
         function scrollScreenshots(direction) {
             const firstFrame = strip.querySelector('.phone-frame');
             const gap = parseFloat(getComputedStyle(strip).gap) || 0;
-            const step = firstFrame ? (firstFrame.offsetWidth + gap) * 2 : strip.clientWidth * 0.5;
+            const screenshotsPerClick = window.matchMedia('(max-width: 640px)').matches ? 1 : 2;
+            const step = firstFrame ? (firstFrame.offsetWidth + gap) * screenshotsPerClick : strip.clientWidth * 0.5;
             strip.scrollBy({
                 left: direction * step,
                 behavior: 'smooth'
