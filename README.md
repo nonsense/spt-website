@@ -1,4 +1,4 @@
-# SPT — Sofia Public Transport
+# SPT — Simple Public Transit
 
 A clean, single-page marketing website for the SPT mobile app — the public transport companion for Sofia, Bulgaria.
 
