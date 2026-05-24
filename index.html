@@ -242,6 +242,62 @@
             line-height: 1.55;
         }
 
+        /* ── Cities ── */
+        .cities {
+            padding: 72px 24px;
+            background: var(--bg);
+        }
+
+        .cities-card {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 34px;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            background: linear-gradient(135deg, var(--bg), var(--bg2));
+        }
+
+        .cities-card h2 {
+            font-size: clamp(1.5rem, 3vw, 2.1rem);
+            line-height: 1.15;
+            letter-spacing: -0.015em;
+            margin-bottom: 12px;
+        }
+
+        .cities-card p {
+            max-width: 580px;
+            color: var(--secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .city-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 24px;
+            list-style: none;
+        }
+
+        .city-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 11px 14px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            background: var(--bg);
+            font-weight: 600;
+        }
+
+        .status-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 999px;
+            background: #30d158;
+            box-shadow: 0 0 0 4px rgba(48, 209, 88, 0.16);
+        }
+
         /* ── Screenshots ── */
         .screenshots {
             padding: 72px 24px;
@@ -420,6 +476,12 @@
             .features {
                 padding: 48px 16px;
             }
+            .cities {
+                padding: 48px 16px;
+            }
+            .cities-card {
+                padding: 26px;
+            }
             .screenshots {
                 padding: 48px 16px;
             }
@@ -495,6 +557,21 @@
             <p data-en="Real-time delay information so you never miss a connection."
                data-bg="Информация за закъснения в реално време, за да не изпускате връзките си.">Real-time delay information so you never miss a connection.</p>
         </div>
+    </div>
+</section>
+
+<!-- Supported Cities -->
+<section class="cities">
+    <div class="cities-card">
+        <h2 data-en="Live transit coverage starts in Sofia." data-bg="Покритието на живо започва със София.">Live transit coverage starts in Sofia.</h2>
+        <p data-en="SPT currently supports Sofia with active real-time public transit data. More cities can be added as reliable data sources become available."
+           data-bg="SPT в момента поддържа София с активни данни за градския транспорт в реално време. Още градове могат да бъдат добавени при наличие на надеждни източници на данни.">SPT currently supports Sofia with active real-time public transit data. More cities can be added as reliable data sources become available.</p>
+        <ul class="city-list" aria-label="Supported cities">
+            <li class="city-chip">
+                <span class="status-dot" aria-hidden="true"></span>
+                <span data-en="Sofia" data-bg="София">Sofia</span>
+            </li>
+        </ul>
     </div>
 </section>
 
