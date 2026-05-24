@@ -32,6 +32,8 @@ async function walk(dir) {
   const files = [];
 
   for (const entry of entries) {
+    if (entry.name.startsWith('.')) continue;
+
     const path = join(dir, entry.name);
     if (entry.isDirectory()) {
       files.push(...(await walk(path)));

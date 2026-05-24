@@ -39,9 +39,10 @@ Useful scripts:
 - `npm run build` — copies deployable static assets into `dist/`
 - `npm run preview` — serves the Cloudflare Pages build locally
 - `npm run pages:create` — creates the `spt-fyi` Pages project if needed
-- `npm run deploy` — uploads `data/` to the `spt-fyi-data` R2 bucket, then deploys `dist/` to the `spt-fyi` Pages project production branch
+- `npm run deploy` — deploys only the Pages site
 - `npm run deploy:site` — deploys only the Pages site
-- `npm run deploy:data` — uploads all files in `data/` to R2, preserving paths relative to `data/`
+- `npm run deploy:data` — uploads non-hidden files in `data/` to R2, preserving paths relative to `data/`
+- `npm run deploy:all` — uploads `data/` to the `spt-fyi-data` R2 bucket, then deploys the Pages site
 - `npm run deploy:preview` — creates a preview Pages deployment
 
 The `spt.fyi` custom domain should be attached to the `spt-fyi` Cloudflare Pages project in Cloudflare. The `data.spt.fyi` custom domain should be attached to the `spt-fyi-data` R2 bucket.
