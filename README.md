@@ -27,4 +27,19 @@ Apple-style aesthetics with system font stack, dark mode support, and responsive
 
 ## Deployment
 
-Static HTML/CSS — deploy to any static host (Netlify, Vercel, GitHub Pages, Cloudflare Pages, etc.).
+This site is configured for Cloudflare Pages at `https://spt.fyi`.
+
+```bash
+npm install
+npm run deploy
+```
+
+Useful scripts:
+
+- `npm run build` — copies deployable static assets into `dist/`
+- `npm run preview` — serves the Cloudflare Pages build locally
+- `npm run pages:create` — creates the `spt-fyi` Pages project if needed
+- `npm run deploy` — deploys `dist/` to the `spt-fyi` Pages project production branch
+- `npm run deploy:preview` — creates a preview Pages deployment
+
+The `spt.fyi` custom domain should be attached to the `spt-fyi` Cloudflare Pages project in Cloudflare.
