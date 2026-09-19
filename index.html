@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SPT — Simple Public Transit</title>
+    <title>SPT — Public Transport in Sofia and Zürich</title>
+    <meta name="description" content="Explore public transport in Sofia and Zürich with SPT for iOS. Routes, nearby stops, departure times, live Sofia vehicles and timetable-based Zürich positions.">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -184,6 +185,11 @@
             max-width: 480px;
         }
 
+        .hero .release-note {
+            font-size: 0.9rem;
+            max-width: 560px;
+        }
+
         .store-btn {
             display: inline-flex;
             align-items: center;
@@ -271,6 +277,8 @@
             line-height: 1.6;
         }
 
+        .cities-card p + p { margin-top: 12px; }
+
         .city-list {
             display: flex;
             flex-wrap: wrap;
@@ -296,6 +304,11 @@
             border-radius: 999px;
             background: #30d158;
             box-shadow: 0 0 0 4px rgba(48, 209, 88, 0.16);
+        }
+
+        .status-dot.scheduled {
+            background: var(--accent);
+            box-shadow: none;
         }
 
         /* ── Screenshots ── */
@@ -591,23 +604,25 @@
 <section class="hero">
     <img src="icon-512.png" alt="SPT app icon" class="hero-icon">
     <h1 data-en="Simple Public Transit" data-bg="Simple Public Transit">Simple Public Transit</h1>
-    <p data-en="All public transport vehicles in real time on an interactive map."
-       data-bg="Всички пътни превозни средства на градския транспорт в реално време върху интерактивна карта.">All public transport vehicles in real time on an interactive map.</p>
+    <p data-en="Public transport in Sofia and Zürich — routes, nearby stops and departure times on one interactive map."
+       data-bg="Градски транспорт в София и Цюрих — линии, близки спирки и часове на тръгване върху една интерактивна карта.">Public transport in Sofia and Zürich — routes, nearby stops and departure times on one interactive map.</p>
     <a href="https://apps.apple.com/us/app/spt-sofia-public-transport/id6768124026" class="store-btn">
         <svg width="22" height="22" viewBox="0 0 22 22" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path d="M14.473 1c.09 1.226-.354 2.427-1.054 3.296-.712.884-1.876 1.57-3.017 1.478-.115-1.196.406-2.44 1.062-3.21C12.19 1.658 13.44 1.04 14.473 1ZM18.5 15.28c-.537 1.17-1.184 2.253-2.128 3.327-.718.832-1.46 1.667-2.565 1.685-1.082.017-1.431-.643-2.668-.643-1.238 0-1.629.624-2.655.66-1.062.037-1.872-.9-2.597-1.728-1.42-1.637-2.51-4.127-2.532-6.527-.015-1.218.22-2.418.842-3.435.83-1.363 2.312-2.289 3.917-2.316 1.07-.02 2.08.72 2.734.72.655 0 1.883-.89 3.17-.758.54.022 2.057.218 3.033 1.644l-.073.046c-.515.316-1.93 1.184-1.912 3.065.02 2.244 1.968 2.99 1.989 2.998l-.55 1.263Z"/>
         </svg>
         <span data-en="Download on the App Store" data-bg="Изтеглете от App Store">Download on the App Store</span>
     </a>
+    <p class="release-note" data-en="Zürich support is included in version 2.1.5, currently awaiting App Store review."
+       data-bg="Поддръжката за Цюрих е включена във версия 2.1.5, която в момента очаква преглед в App Store.">Zürich support is included in version 2.1.5, currently awaiting App Store review.</p>
 </section>
 
 <!-- Features -->
 <section class="features">
     <div class="features-grid">
         <div class="feature-card">
-            <h3 data-en="Live Map" data-bg="Карта на живо">Live Map</h3>
-            <p data-en="See all buses, trams, trolleybuses, and metro moving in real time across the city."
-               data-bg="Вижте всички автобуси, трамваи, тролейбуси и метро в реално движение из целия град.">See all buses, trams, trolleybuses, and metro moving in real time across the city.</p>
+            <h3 data-en="Vehicle Map" data-bg="Карта на транспорта">Vehicle Map</h3>
+            <p data-en="Follow live buses, trams and trolleybuses in Sofia. Zürich vehicles and Sofia metro positions are timetable estimates."
+               data-bg="Следете автобуси, трамваи и тролейбуси на живо в София. Позициите в Цюрих и на софийското метро са прогнозни, по разписание.">Follow live buses, trams and trolleybuses in Sofia. Zürich vehicles and Sofia metro positions are timetable estimates.</p>
         </div>
         <div class="feature-card">
             <h3 data-en="Nearby Stops" data-bg="Близки Спирки">Nearby Stops</h3>
@@ -615,19 +630,19 @@
                data-bg="Намерете спирки в близост до вас, с пешеходно разстояние и предстоящи курсове.">Find stops near you, with walking distance and upcoming trips.</p>
         </div>
         <div class="feature-card">
-            <h3 data-en="All Routes" data-bg="Всички Линии">All Routes</h3>
-            <p data-en="Browse all lines — metro, tram, bus, and trolleybus — and track any vehicle live."
-               data-bg="Разгледайте всичките линии — метро, трамвай, автобус и тролейбус — и проследете всяко превозно средство.">Browse all lines — metro, tram, bus, and trolleybus — and track any vehicle live.</p>
+            <h3 data-en="Routes &amp; Timetables" data-bg="Линии и разписания">Routes &amp; Timetables</h3>
+            <p data-en="Browse routes and stops in both cities, including Zürich S-Bahn and regional rail. Plan your next journey."
+               data-bg="Разглеждайте линии и спирки в двата града, включително S-Bahn и регионални влакове в Цюрих. Планирайте следващото си пътуване.">Browse routes and stops in both cities, including Zürich S-Bahn and regional rail. Plan your next journey.</p>
         </div>
         <div class="feature-card">
             <h3 data-en="Favourites" data-bg="Любими">Favourites</h3>
-            <p data-en="Save your most-used lines for one-tap access to timetables and real-time positions."
-               data-bg="Запазете любимите си линии за бърз достъп до разписания и позиции в реално време.">Save your most-used lines for one-tap access to timetables and real-time positions.</p>
+            <p data-en="Save your favourite lines for quick access to timetables, and filter the map to show the services you use."
+               data-bg="Запазете любимите си линии за бърз достъп до разписания и филтрирайте картата според транспорта, който използвате.">Save your favourite lines for quick access to timetables, and filter the map to show the services you use.</p>
         </div>
         <div class="feature-card">
-            <h3 data-en="Real-time Delays" data-bg="Закъснения в реално време">Real-time Delays</h3>
-            <p data-en="Real-time delay information so you never miss a connection."
-               data-bg="Информация за закъснения в реално време, за да не изпускате връзките си.">Real-time delay information so you never miss a connection.</p>
+            <h3 data-en="Departure Times" data-bg="Часове на тръгване">Departure Times</h3>
+            <p data-en="Check upcoming departures in both cities, with live delay updates in Sofia where available. Zürich uses scheduled times."
+               data-bg="Проверявайте предстоящите тръгвания в двата града, с наличните данни за закъснения на живо в София. За Цюрих се използва разписанието.">Check upcoming departures in both cities, with live delay updates in Sofia where available. Zürich uses scheduled times.</p>
         </div>
     </div>
 </section>
@@ -635,13 +650,21 @@
 <!-- Supported Cities -->
 <section class="cities">
     <div class="cities-card">
-        <h2 data-en="Live transit coverage starts in Sofia." data-bg="Покритието на живо започва със София.">Live transit coverage starts in Sofia.</h2>
-        <p data-en="SPT currently supports Sofia with active real-time public transit data. More cities can be added as reliable data sources become available."
-           data-bg="SPT в момента поддържа София с активни данни за градския транспорт в реално време. Още градове могат да бъдат добавени при наличие на надеждни източници на данни.">SPT currently supports Sofia with active real-time public transit data. More cities can be added as reliable data sources become available.</p>
+        <h2 data-en="Sofia and Zürich. One app." data-bg="София и Цюрих. Едно приложение.">Sofia and Zürich. One app.</h2>
+        <p data-en="Sofia combines official timetables with live surface-vehicle positions, departure updates and service alerts. Metro positions are estimated from the timetable."
+           data-bg="София съчетава официални разписания с позиции на наземния транспорт на живо, актуализации на тръгванията и промени в движението. Позициите на метрото се изчисляват по разписание.">Sofia combines official timetables with live surface-vehicle positions, departure updates and service alerts. Metro positions are estimated from the timetable.</p>
+        <p data-en="Zürich uses Swiss timetable data, official ZVV line colours and matching route geometry where available. Vehicle positions are timetable estimates, not live GPS. Some services, including trains, still use straight connections between stops."
+           data-bg="Цюрих използва швейцарски разписания, официалните цветове на ZVV и данни за трасетата, когато са налични. Позициите са прогнозни, по разписание, а не GPS на живо. Някои линии, включително влаковете, все още използват прави връзки между спирките.">Zürich uses Swiss timetable data, official ZVV line colours and matching route geometry where available. Vehicle positions are timetable estimates, not live GPS. Some services, including trains, still use straight connections between stops.</p>
+        <p data-en="Choose your city in Settings. Zürich requires version 2.1.5 or later."
+           data-bg="Изберете града от Настройки. За Цюрих е необходима версия 2.1.5 или по-нова.">Choose your city in Settings. Zürich requires version 2.1.5 or later.</p>
         <ul class="city-list" aria-label="Supported cities">
             <li class="city-chip">
                 <span class="status-dot" aria-hidden="true"></span>
-                <span data-en="Sofia" data-bg="София">Sofia</span>
+                <span data-en="Sofia · Live data" data-bg="София · Данни на живо">Sofia · Live data</span>
+            </li>
+            <li class="city-chip">
+                <span class="status-dot scheduled" aria-hidden="true"></span>
+                <span data-en="Zürich · Timetable data" data-bg="Цюрих · По разписание">Zürich · Timetable data</span>
             </li>
         </ul>
     </div>
@@ -649,7 +672,7 @@
 
 <!-- Screenshots -->
 <section class="screenshots">
-    <h2 class="section-title" data-en="The app in action" data-bg="Приложението в действие">The app in action</h2>
+    <h2 class="section-title" data-en="Explore SPT in Sofia" data-bg="Разгледайте SPT в София">Explore SPT in Sofia</h2>
     <div class="screenshots-carousel">
         <button class="screenshots-arrow prev" type="button" aria-label="Scroll screenshots left" data-scroll-screenshots="prev">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
