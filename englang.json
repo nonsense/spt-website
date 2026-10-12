@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "kind": "website",
+  "name": "SPT",
+  "domain": "spt.fyi",
+  "urls": { "published": "https://spt.fyi", "preview": "https://draft.spt-fyi.pages.dev" },
+  "branches": { "published": "main", "draft": "draft" },
+  "build": { "command": "npm run build", "output": "dist" },
+  "preview": { "command": "npm run deploy:preview" },
+  "publish": { "method": "command", "command": "npm run deploy" },
+  "brand": { "logo": "icon-256.png" },
+  "starters": ["Change the home page copy", "Add a screenshot", "Update the support page"],
+  "languages": ["en"]
+}
