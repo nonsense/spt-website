@@ -9,7 +9,7 @@
   "preview": { "command": "npm run deploy:preview" },
   "publish": { "method": "command", "command": "npm run deploy" },
   "setup": { "command": "npm ci" },
-  "brand": { "logo": "icon-256.png" },
+  "brand": { "accent": "#F0A818", "logo": "icon-256.png", "screenshot": "englang-screenshot.jpg" },
   "starters": ["Change the home page copy", "Add a screenshot", "Update the support page"],
   "languages": ["en"]
 }
