@@ -1,15 +1,20 @@
 {
-  "version": 1,
-  "kind": "website",
+  "version": 2,
   "name": "SPT",
-  "domain": "spt.fyi",
-  "urls": { "published": "https://spt.fyi", "preview": "https://draft.spt-fyi.pages.dev" },
-  "branches": { "published": "main", "draft": "draft" },
-  "build": { "command": "npm run build", "output": "dist" },
-  "preview": { "command": "npm run deploy:preview" },
-  "publish": { "method": "command", "command": "npm run deploy" },
-  "setup": { "command": "npm ci" },
-  "brand": { "accent": "#F0A818", "logo": "icon-256.png", "screenshot": "englang-screenshot.jpg" },
-  "starters": ["Change the home page copy", "Add a screenshot", "Update the support page"],
-  "languages": ["en"]
+  "parts": [
+    {
+      "kind": "website",
+      "domain": "spt.fyi",
+      "urls": { "published": "https://spt.fyi", "preview": "https://draft.spt-fyi.pages.dev" },
+      "branches": { "published": "main", "draft": "draft" },
+      "build": { "command": "mise exec -- npm run build", "output": "dist" },
+      "preview": { "command": "mise run preview" },
+      "publish": { "method": "command", "command": "mise run publish" },
+      "setup": { "command": "mise install --locked && mise run setup" },
+      "hosting": { "provider": "cloudflare-pages", "project": "spt-fyi" },
+      "brand": { "accent": "#F0A818", "logo": "icon-256.png", "screenshot": "englang-screenshot.jpg" },
+      "starters": ["Change the home page copy", "Add a screenshot", "Update the support page"],
+      "languages": ["en"]
+    }
+  ]
 }

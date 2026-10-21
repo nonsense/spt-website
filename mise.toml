@@ -1,0 +1,13 @@
+min_version = "2026.10.0"
+
+[tools]
+node = "24.15.0"
+
+[tasks.setup]
+run = "mise exec -- npm ci"
+
+[tasks.preview]
+run = "mise exec -- node scripts/deploy.mjs --preview"
+
+[tasks.publish]
+run = "mise exec -- node scripts/deploy.mjs"

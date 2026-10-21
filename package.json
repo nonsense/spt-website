@@ -7,14 +7,19 @@
   "scripts": {
     "build": "node scripts/build-pages.mjs",
     "preview": "npm run build && wrangler pages dev dist --port 8788",
-    "pages:create": "wrangler pages project create spt-fyi --production-branch=main",
     "deploy": "npm run deploy:site",
-    "deploy:site": "npm run build && wrangler pages deploy dist --project-name=spt-fyi --branch=main",
+    "deploy:site": "node scripts/deploy.mjs",
+    "test": "node --test tests/*.test.mjs",
     "deploy:data": "node scripts/deploy-data.mjs",
     "deploy:all": "npm run deploy:data && npm run deploy:site",
-    "deploy:preview": "npm run build && wrangler pages deploy dist --project-name=spt-fyi"
+    "deploy:preview": "node scripts/deploy.mjs --preview"
   },
   "devDependencies": {
-    "wrangler": "^4.94.0"
+    "wrangler": "4.151.3"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true,
+    "workerd@1.20261019.1": true,
+    "fsevents@2.3.3": false
   }
 }
