@@ -5,17 +5,44 @@
     {
       "kind": "website",
       "domain": "spt.fyi",
-      "urls": { "published": "https://spt.fyi", "preview": "https://draft.spt-fyi.pages.dev" },
+      "urls": {
+        "published": "https://spt.fyi",
+        "preview": "https://draft.spt-fyi.pages.dev"
+      },
       "branch": "main",
       "autoDeployDraftOnNewCommit": true,
-      "build": { "command": "mise exec -- npm run build", "output": "dist" },
-      "preview": { "command": "mise run preview" },
-      "publish": { "method": "command", "command": "mise run publish" },
-      "setup": { "command": "./scripts/setup" },
-      "hosting": { "provider": "cloudflare-pages", "project": "spt-fyi" },
-      "brand": { "accent": "#F0A818", "logo": "icon-256.png", "screenshot": "englang-screenshot.jpg" },
-      "starters": ["Change the home page copy", "Add a screenshot", "Update the support page"],
-      "languages": ["en"]
+      "build": {
+        "command": "mise exec -- npm run build",
+        "output": "dist"
+      },
+      "preview": {
+        "command": "mise run preview"
+      },
+      "publish": {
+        "method": "command",
+        "command": "mise run publish"
+      },
+      "setup": {
+        "command": "./scripts/setup"
+      },
+      "hosting": {
+        "provider": "cloudflare-pages",
+        "project": "spt-fyi"
+      },
+      "brand": {
+        "accent": "#F0A818",
+        "logo": "icon-256.png",
+        "screenshot": "englang-screenshot.jpg"
+      },
+      "starters": [
+        "Change the home page copy",
+        "Add a screenshot",
+        "Update the support page"
+      ],
+      "languages": [
+        "en"
+      ],
+      "backUpAfterPublish": true
     }
   ]
 }
