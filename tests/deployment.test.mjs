@@ -4,22 +4,26 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { deployment, ACCOUNT } from '../scripts/deploy.mjs';
+import { deployment, websiteBranch, ACCOUNT } from '../scripts/deploy.mjs';
 
 test('draft and production use explicit, separate aliases on the personal account', () => {
   for (const preview of [true, false]) {
-    const plan = deployment({ preview, branch: 'draft', dirty: '' });
+    const plan = deployment({ preview, onBranch: true, dirty: '' });
     assert.deepEqual(plan, { branch: preview ? 'draft' : 'main', project: 'spt-fyi', account: ACCOUNT });
   }
 });
 
-test('wrong account, checkout and uncommitted source cannot deploy', () => {
-  const valid = { preview: true, branch: 'draft', dirty: '' };
-  for (const change of [{ account: 'other' }, { branch: 'main' }, { branch: 'feature' }, { dirty: ' M index.html' }]) {
+test('wrong account, a commit off the branch and uncommitted source cannot deploy', () => {
+  const valid = { preview: true, onBranch: true, dirty: '' };
+  for (const change of [{ account: 'other' }, { onBranch: false }, { dirty: ' M index.html' }]) {
     assert.throws(() => deployment({ ...valid, ...change }));
+    assert.throws(() => deployment({ ...valid, preview: false, ...change }));
   }
-  assert.throws(() => deployment({ ...valid, preview: false, branch: 'feature' }));
-  assert.equal(deployment({ ...valid, preview: false, branch: 'main' }).branch, 'main');
+});
+
+test('the website branch comes from englang.json, main when absent', () => {
+  assert.equal(websiteBranch({ parts: [{ kind: 'website', branch: 'site' }] }), 'site');
+  assert.equal(websiteBranch({ parts: [{ kind: 'website' }] }), 'main');
 });
 
 test('build includes tracked assets, not metadata, local files or R2 data', () => {
