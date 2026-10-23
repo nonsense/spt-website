@@ -27,13 +27,41 @@ Apple-style aesthetics with system font stack, dark mode support, and responsive
 - `favicon.ico` / `favicon-32.png` — Browser tab icons (multi-res, 8 KB)
 - `screen1.png` through `screen5.png` — App screenshots used in the feature showcase
 
+## Reproduce on a new VM
+
+Supported: Linux (x64, arm64) and macOS (arm64, x64). Needs only `git`, `bash`,
+`curl` and `tar`.
+
+```bash
+git clone git@github.com:nonsense/spt-website.git && cd spt-website
+git checkout <commit>   # optional: a saved revision
+./scripts/setup
+```
+
+`./scripts/setup` installs mise 2026.10.0 when it is missing (checksum
+checked), then the tools in `mise.toml` at the versions locked in `mise.lock`
+(Node 24.22.1 with its bundled npm), then the npm packages in
+`package-lock.json` with `npm ci` (Wrangler 4.152.0). It is safe to run again
+and never deploys or changes pins. Then:
+
+```bash
+mise exec -- npm run build   # dist/
+mise exec -- npm test        # offline tests
+```
+
+Pins live in `mise.toml` + `mise.lock` (tools) and `package.json` +
+`package-lock.json` (npm). To upgrade, change a pin, then run
+`mise lock --platform linux-x64,linux-arm64,macos-arm64,macos-x64` or
+`npm install --save-exact`, and commit the lockfiles. Deploying needs a
+Cloudflare login with access to the account below; the R2 data in `data/` is
+not in Git.
+
 ## Deployment
 
 This site is configured for Cloudflare Pages at `https://spt.fyi`.
 
 ```bash
-mise install --locked
-mise run setup
+./scripts/setup
 mise run preview   # draft checkout -> https://draft.spt-fyi.pages.dev
 mise run publish   # main or draft checkout -> https://spt.fyi
 ```

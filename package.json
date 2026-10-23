@@ -15,7 +15,7 @@
     "deploy:preview": "node scripts/deploy.mjs --preview"
   },
   "devDependencies": {
-    "wrangler": "4.151.3"
+    "wrangler": "4.152.0"
   },
   "allowScripts": {
     "esbuild@0.28.2": true,
