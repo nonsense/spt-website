@@ -6,7 +6,7 @@ A clean, single-page marketing website for the SPT mobile app — the public tra
 
 SPT provides maps, routes, stops and departures for Sofia and Zürich. Sofia surface vehicles use realtime data; Zürich vehicles and Sofia metro positions are timetable estimates. Zürich includes S-Bahn/regional rail schedules, plus official ZVV line colours and matching route shapes where available. The website serves as a landing page, app showcase, and support hub.
 
-Zürich requires app version 2.1.5 or later. The English/Bulgarian homepage and support copy currently note that 2.1.5 is awaiting App Store review; remove that temporary notice once the version is publicly released.
+Zürich requires app version 2.1.5 or later.
 
 ## Pages
 
