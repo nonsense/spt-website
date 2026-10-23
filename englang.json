@@ -42,7 +42,7 @@
       "languages": [
         "en"
       ],
-      "backUpAfterPublish": true
+      "backUpAfterPublish": false
     }
   ]
 }
