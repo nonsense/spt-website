@@ -251,36 +251,46 @@
     <!-- English -->
     <div lang="en" class="lang-content show">
         <h1>Privacy Policy</h1>
-        <p class="date">Last updated: May 11, 2026</p>
+        <p class="date">Last updated: November 20, 2026</p>
 
-        <p>SPT — Simple Public Transit is an independent iOS app for Sofia public transport information. This policy explains how the app handles data.</p>
+        <p>SPT — Simple Public Transit is an independent iOS app for public transport in Sofia, Zürich and Tyrol. This policy explains how the app handles data.</p>
 
         <h2>Data the app does not collect</h2>
-        <p>SPT does not collect, store, or transmit any personal information. There is no account system, no sign-in, and no user profile of any kind.</p>
-        <p>We do not use analytics frameworks, crash reporting tools, advertising SDKs, or any third-party services that could collect data on our behalf.</p>
+        <p>SPT does not collect personal information. There is no account system, no sign-in and no user profile of any kind.</p>
+        <p>The app contains no analytics, crash reporting or advertising SDKs, and SPT receives no data about how you use it.</p>
 
         <h2>Location</h2>
-        <p>The app may request access to your device location solely to show nearby transit stops and calculate walking distances. Location data is processed entirely on your device and is never stored or sent anywhere — not to our servers (we don't have any) and not to any third party.</p>
+        <p>The app may ask for your location to show nearby stops, centre the map and plan trips from where you are. SPT processes your location on your device and never stores it or sends it to SPT.</p>
+        <p>A few features send a location to a map service so it can answer:</p>
+        <ul>
+            <li>Walking directions send the start and end points to Apple Maps.</li>
+            <li>Place search sends your approximate location to Google Places to rank suggestions near you. If you are outside the covered area, or have not shared your location, the city centre is sent instead.</li>
+        </ul>
         <p>You can deny location access and still use all other features of the app.</p>
 
         <h2>Network requests</h2>
-        <p>The app downloads public transit data from Sofia Traffic's GTFS feeds hosted at <code>gtfs.sofiatraffic.bg</code>. These requests are anonymous — the app sends no user identifiers, device identifiers, or personal data in any network request.</p>
-        <p>The data downloaded includes:</p>
+        <p>The app connects to the services below. It sends no account, device or advertising identifiers of its own. As with any internet connection, these services can see your IP address.</p>
         <ul>
-            <li>Static schedule data (routes, stops, trips, stop times) — imported once and stored in a local on-device database</li>
-            <li>Real-time vehicle positions and trip updates — polled periodically and held in memory only, not persisted</li>
+            <li><strong>Sofia Traffic</strong> (<code>gtfs.sofiatraffic.bg</code>) — Sofia timetables, live vehicle positions, departure updates and service alerts.</li>
+            <li><strong>SPT</strong> (<code>data.spt.fyi</code>) — prebuilt timetable databases for each city and live departure predictions for Zürich.</li>
+            <li><strong>transport.opendata.ch</strong> (search.ch) — extra departure predictions for a Zürich stop you open. The request includes that stop's ID.</li>
+            <li><strong>Apple</strong> — the map itself, walking directions, the approximate address of places you save, and a check for a newer app version on the App Store.</li>
+            <li><strong>Google Places</strong> — suggestions while you search for a place. The request includes the text you type and the approximate location described above. Google handles it under its <a href="https://policies.google.com/privacy">privacy policy</a>.</li>
         </ul>
+        <p>Timetables are saved in a local database on your device. Live vehicle positions, departure updates and predictions are kept in memory only and are not saved.</p>
 
         <h2>Local storage</h2>
-        <p>The following data is stored exclusively on your device and never leaves it:</p>
+        <p>The following data is stored only on your device and never leaves it:</p>
         <ul>
-            <li>GTFS schedule data in a local SQLite database</li>
-            <li>Your favourite line selections in UserDefaults</li>
-            <li>Whether the favourites filter is enabled in UserDefaults</li>
+            <li>Timetable databases for the cities you download</li>
+            <li>Your favourite lines and stops, and the places you save</li>
+            <li>Your selected city, language and app settings</li>
+            <li>The network usage counter shown in Settings</li>
         </ul>
+        <p>Deleting the app removes all of it.</p>
 
         <h2>Children</h2>
-        <p>The app does not knowingly collect data from anyone, including children under 13. All displayed data is public transit information from official Sofia municipal feeds.</p>
+        <p>The app does not knowingly collect data from anyone, including children under 13. All transit data it displays is public information from official sources.</p>
 
         <h2>Changes to this policy</h2>
         <p>If this policy changes, the updated version will be posted here. The app does not have a mechanism to push policy updates.</p>
@@ -289,42 +299,52 @@
         <p>For questions about this privacy policy, email <a href="mailto:anton.evangelatov@gmail.com">anton.evangelatov@gmail.com</a>.</p>
 
         <hr>
-        <p style="color: var(--secondary); font-size: 13px;">SPT is an independent app and is not affiliated with or endorsed by Sofia Urban Mobility Centre, Sofia Municipality, or Sofia Traffic.</p>
+        <p style="color: var(--secondary); font-size: 13px;">SPT is an independent app and is not affiliated with or endorsed by Sofia Urban Mobility Centre, Sofia Municipality, Sofia Traffic, ZVV, VBZ, VVT, IVB, ÖBB or Mobilitätsverbünde Österreich.</p>
     </div>
 
     <!-- Bulgarian -->
     <div lang="bg" class="lang-content">
         <h1>Политика за поверителност</h1>
-        <p class="date">Последна актуализация: 11 май 2026 г.</p>
+        <p class="date">Последна актуализация: 20 ноември 2026 г.</p>
 
-        <p>SPT — Simple Public Transit е независимо iOS приложение за информация за градския транспорт в София. Тази политика обяснява как приложението обработва данните.</p>
+        <p>SPT — Simple Public Transit е независимо iOS приложение за градския транспорт в София, Цюрих и Тирол. Тази политика обяснява как приложението обработва данните.</p>
 
         <h2>Данни, които приложението не събира</h2>
-        <p>SPT не събира, не съхранява и не предава никаква лична информация. Няма система за акаунти, няма вход и няма потребителски профил от какъвто и да е вид.</p>
-        <p>Не използваме рамки за анализ, инструменти за докладване на грешки, рекламни SDK или каквито и да е услуги на трети страни, които биха могли да събират данни от наше име.</p>
+        <p>SPT не събира лична информация. Няма система за акаунти, няма вход и няма потребителски профил от какъвто и да е вид.</p>
+        <p>Приложението не съдържа SDK за анализ, докладване на грешки или реклами и SPT не получава данни за това как го използвате.</p>
 
         <h2>Локация</h2>
-        <p>Приложението може да поиска достъп до локацията на устройството ви единствено за да покаже близки спирки и да изчисли разстояния за ходене пеша. Данните за локацията се обработват изцяло на устройството ви и никога не се съхраняват или изпращат наникъде — нито към наши сървъри (нямаме такива), нито към трета страна.</p>
+        <p>Приложението може да поиска достъп до локацията ви, за да покаже близки спирки, да центрира картата и да планира пътувания от мястото, където се намирате. SPT обработва локацията ви на устройството и никога не я съхранява и не я изпраща към SPT.</p>
+        <p>Някои функции изпращат местоположение към картографска услуга, за да получат отговор:</p>
+        <ul>
+            <li>Пешеходните маршрути изпращат началната и крайната точка към Apple Maps.</li>
+            <li>Търсенето на места изпраща приблизителното ви местоположение към Google Places, за да подреди предложенията около вас. Ако сте извън обхванатия район или не сте споделили локацията си, вместо това се изпраща центърът на града.</li>
+        </ul>
         <p>Можете да откажете достъп до локация и пак да използвате всички останали функции на приложението.</p>
 
         <h2>Мрежови заявки</h2>
-        <p>Приложението изтегля публични данни за градския транспорт от GTFS каналите на Sofia Traffic, хоствани на <code>gtfs.sofiatraffic.bg</code>. Тези заявки са анонимни — приложението не изпраща потребителски идентификатори, идентификатори на устройство или лични данни в нито една мрежова заявка.</p>
-        <p>Изтеглените данни включват:</p>
+        <p>Приложението се свързва с изброените по-долу услуги. То не изпраща собствени идентификатори на акаунт, устройство или реклама. Както при всяка интернет връзка, тези услуги могат да видят IP адреса ви.</p>
         <ul>
-            <li>Статични данни за разписания (линии, спирки, курсове, часове на спирки) — импортират се еднократно и се съхраняват в локална база данни на устройството</li>
-            <li>Позиции на превозни средства в реално време и актуализации на пътувания — запитват се периодично и се пазят само в паметта, без да се записват трайно</li>
+            <li><strong>Sofia Traffic</strong> (<code>gtfs.sofiatraffic.bg</code>) — разписания за София, позиции на превозните средства на живо, актуализации на тръгванията и промени в движението.</li>
+            <li><strong>SPT</strong> (<code>data.spt.fyi</code>) — готови бази данни с разписания за всеки град и прогнози на живо за тръгванията в Цюрих.</li>
+            <li><strong>transport.opendata.ch</strong> (search.ch) — допълнителни прогнози за тръгванията от спирка в Цюрих, която отворите. Заявката съдържа идентификатора на спирката.</li>
+            <li><strong>Apple</strong> — самата карта, пешеходните маршрути, приблизителният адрес на запазените от вас места и проверка за по-нова версия на приложението в App Store.</li>
+            <li><strong>Google Places</strong> — предложения, докато търсите място. Заявката съдържа въведения от вас текст и приблизителното местоположение, описано по-горе. Google ги обработва съгласно своята <a href="https://policies.google.com/privacy">политика за поверителност</a>.</li>
         </ul>
+        <p>Разписанията се записват в локална база данни на устройството. Позициите на живо, актуализациите на тръгванията и прогнозите се пазят само в паметта и не се записват.</p>
 
         <h2>Локално съхранение</h2>
-        <p>Следните данни се съхраняват изключително на вашето устройство и никога не го напускат:</p>
+        <p>Следните данни се съхраняват само на вашето устройство и никога не го напускат:</p>
         <ul>
-            <li>GTFS данни за разписания в локална SQLite база данни</li>
-            <li>Вашите избрани любими линии в UserDefaults</li>
-            <li>Дали филтърът за любими линии е включен в UserDefaults</li>
+            <li>Бази данни с разписания за изтеглените градове</li>
+            <li>Любимите ви линии и спирки и запазените от вас места</li>
+            <li>Избраният град, езикът и настройките на приложението</li>
+            <li>Броячът на мрежовия трафик, показван в Настройки</li>
         </ul>
+        <p>Изтриването на приложението премахва всички тях.</p>
 
         <h2>Деца</h2>
-        <p>Приложението не събира съзнателно данни от никого, включително от деца под 13 години. Всички показвани данни са публична информация за градския транспорт от официалните общински канали на София.</p>
+        <p>Приложението не събира съзнателно данни от никого, включително от деца под 13 години. Всички показвани данни за транспорта са публична информация от официални източници.</p>
 
         <h2>Промени в тази политика</h2>
         <p>Ако тази политика се промени, актуализираната версия ще бъде публикувана тук. Приложението няма механизъм за изпращане на известия за промени в политиката.</p>
@@ -333,7 +353,7 @@
         <p>За въпроси относно тази политика за поверителност, пишете на <a href="mailto:anton.evangelatov@gmail.com">anton.evangelatov@gmail.com</a>.</p>
 
         <hr>
-        <p style="color: var(--secondary); font-size: 13px;">SPT е независимо приложение и не е свързано с или одобрено от Център за градска мобилност, Столична община или Sofia Traffic.</p>
+        <p style="color: var(--secondary); font-size: 13px;">SPT е независимо приложение и не е свързано с или одобрено от Център за градска мобилност, Столична община, Sofia Traffic, ZVV, VBZ, VVT, IVB, ÖBB или Mobilitätsverbünde Österreich.</p>
     </div>
 
 </div>
