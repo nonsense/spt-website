@@ -4,7 +4,7 @@ A clean, single-page marketing website for the SPT mobile app — the public tra
 
 ## About SPT
 
-SPT provides maps, routes, stops and departures for Sofia, Zürich and Tyrol. Sofia surface vehicles use realtime data; Zürich and Tyrol vehicles and Sofia metro positions are timetable estimates. Zürich includes S-Bahn/regional rail schedules, plus official ZVV line colours and matching route shapes where available. Tyrol covers the whole Land, centred on Innsbruck and the Zillertal: IVB trams and buses, Stubaitalbahn, Hungerburgbahn, Zillertalbahn and Zillertal buses, VVT regional buses and ÖBB/other rail calling in Tyrol, from Mobilitätsverbünde Österreich data (no realtime). The website serves as a landing page, app showcase, and support hub.
+SPT provides maps, routes, stops and departures for Sofia, Zürich and Tyrol. Sofia surface vehicles use realtime data. Zürich departures and estimated positions follow official Swiss live predictions where available, scheduled times otherwise. Tyrol and Sofia metro positions are timetable estimates. Zürich includes S-Bahn/regional rail schedules, plus official ZVV line colours and matching route shapes where available. Tyrol covers the whole Land, centred on Innsbruck and the Zillertal: IVB trams and buses, Stubaitalbahn, Hungerburgbahn, Zillertalbahn and Zillertal buses, VVT regional buses and ÖBB/other rail calling in Tyrol, from Mobilitätsverbünde Österreich data (no realtime). The website serves as a landing page, app showcase, and support hub.
 
 All three are in the latest app version; the site does not list per-city minimum versions.
 
