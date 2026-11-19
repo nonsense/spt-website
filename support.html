@@ -252,10 +252,10 @@
     <!-- English -->
     <div lang="en" class="lang-content show">
         <h1>SPT Support</h1>
-        <p>Help and frequently asked questions for SPT — Simple Public Transit, the iOS app for public transport in Sofia and Zürich.</p>
+        <p>Help and frequently asked questions for SPT — Simple Public Transit, the iOS app for public transport in Sofia, Zürich and Tyrol.</p>
 
         <h2>About the app</h2>
-        <p>SPT — Simple Public Transit brings Sofia and Zürich routes, stops, departures and journey planning to one interactive map. Sofia surface-vehicle positions use live data; Zürich vehicle positions and Sofia metro positions are estimated from timetables.</p>
+        <p>SPT — Simple Public Transit brings Sofia, Zürich and Tyrol routes, stops, departures and journey planning to one interactive map. Sofia surface-vehicle positions use live data; vehicle positions in Zürich and Tyrol, and Sofia metro positions, are estimated from timetables.</p>
         <p>Schedule data is stored on your device so route browsing and stop lookups work offline after download.</p>
 
         <h2>FAQ</h2>
@@ -263,26 +263,32 @@
             <dt>Where does Sofia transit data come from?</dt>
             <dd>For Sofia, the app uses Sofia Traffic's public GTFS data at <code>gtfs.sofiatraffic.bg</code>, published by the Sofia Urban Mobility Centre. Static GTFS data provides stops, routes, trips, and timetables; GTFS Realtime feeds provide live vehicle positions and trip updates used for the map, departures, and delay information. SPT is an independent app, so if the official feeds are delayed or incomplete, the app may reflect that.</dd>
 
-            <dt>How do I switch to Zürich?</dt>
-            <dd>In version 2.1.5 or later, open Settings using the gear button on the Sofia map, select Zürich and let its schedule data download. Your city choice is saved. While Zürich is selected, Settings is available as a tab.</dd>
+            <dt>How do I switch to Zürich or Tyrol?</dt>
+            <dd>Open Settings using the gear button on the Sofia map, select Zürich or Tyrol and let its schedule data download. Zürich needs version 2.1.5 or later; Tyrol needs 2.1.7 or later. Your city choice is saved. While Zürich or Tyrol is selected, Settings is available as a tab.</dd>
 
             <dt>Where does Zürich data come from, and are its vehicles live?</dt>
             <dd>Zürich uses the <a href="https://opentransportdata.swiss/en/cookbook/timetable-cookbook/gtfs/">Swiss national GTFS timetable</a>, including S-Bahn and regional rail, with official colours and matching route shapes from the <a href="https://data.stadt-zuerich.ch/dataset/vbz_fahrplandaten_gtfs">Stadt Zürich/ZVV feed</a>. Positions are calculated from scheduled stop times, not live GPS; they do not show actual delays or unscheduled diversions. Trips without matching geometry, including trains, may use straight connections between stops.</dd>
+
+            <dt>What does Tyrol cover?</dt>
+            <dd>The whole of Tyrol, centred on Innsbruck and the Zillertal. In Innsbruck: IVB trams and city buses, the Stubaitalbahn to Fulpmes and the Hungerburgbahn. In the Zillertal: the Zillertalbahn from Jenbach to Mayrhofen and the Zillertal buses, including Mayrhofen–Hintertux, Gerlos/Königsleiten and Innsbruck–Jenbach–Mayrhofen. Elsewhere: VVT regional buses (Postbus and other operators), plus ÖBB S-Bahn Tirol, REX, Railjet and Nightjet, and other trains calling in Tyrol. Cable cars, including the Nordkettenbahn, are not included, and neither are some ski buses, such as the Mayrhofen ski-bus network.</dd>
+
+            <dt>Where does Tyrol data come from, and are its vehicles live?</dt>
+            <dd>Tyrol uses the official VVT timetable and Austrian rail data from <a href="https://data.mobilitaetsverbuende.at/">Mobilitätsverbünde Österreich</a> (“Datenquelle: Mobilitätsverbünde Österreich OG – data.mobilitaetsverbuende.at”), used under its <a href="https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use">licence</a>. SPT refreshes it weekly. There is no open live data for Tyrol yet: departures show scheduled times, and map positions are calculated from the timetable, not live GPS. Delays, cancellations and diversions are not shown.</dd>
 
             <dt>How do I refresh the schedule data?</dt>
             <dd>Open Settings and refresh the static data for the selected city. Prebuilt databases are downloaded from <code>data.spt.fyi</code>. This may take a minute or two depending on your connection.</dd>
 
             <dt>The app shows no vehicles. What's wrong?</dt>
-            <dd>Check that you selected the right city, downloaded its schedule and are viewing that city's map. Disable the favourites filter to see all available services. Sofia live data requires an internet connection; Zürich estimates depend on active scheduled trips and may be absent outside service hours. If the problem persists, refresh the schedule in Settings or email <a href="mailto:anton.evangelatov@gmail.com">anton.evangelatov@gmail.com</a>.</dd>
+            <dd>Check that you selected the right city, downloaded its schedule and are viewing that city's map. Disable the favourites filter to see all available services. Sofia live data requires an internet connection; Zürich and Tyrol estimates depend on active scheduled trips and may be absent outside service hours. If the problem persists, refresh the schedule in Settings or email <a href="mailto:anton.evangelatov@gmail.com">anton.evangelatov@gmail.com</a>.</dd>
 
             <dt>How do favourites work?</dt>
             <dd>Tap the star icon on the map to open the favourites picker. Star the lines you care about, then toggle the filter on to show only those vehicles on the map, in nearby stops, and in departure lists. You can also star and unstar lines from the Route Detail page.</dd>
 
             <dt>Why do I see vehicles after they've left a stop?</dt>
-            <dd>In Sofia, realtime updates can arrive late, so a vehicle that has passed a stop may still appear briefly. Zürich positions and departures are timetable estimates and can differ from a vehicle's actual progress.</dd>
+            <dd>In Sofia, realtime updates can arrive late, so a vehicle that has passed a stop may still appear briefly. Zürich and Tyrol positions and departures are timetable estimates and can differ from a vehicle's actual progress.</dd>
 
             <dt>Why do some departures say "Scheduled" and others show live times?</dt>
-            <dd>Live departure times use realtime trip updates where available in Sofia. "Scheduled" means the time comes from the timetable. Zürich uses scheduled times; a moving vehicle on its map is not evidence of live tracking.</dd>
+            <dd>Live departure times use realtime trip updates where available in Sofia. "Scheduled" means the time comes from the timetable. Zürich and Tyrol use scheduled times; a moving vehicle on their maps is not evidence of live tracking.</dd>
 
             <dt>Can I use the app without granting location access?</dt>
             <dd>Yes. Location access is only used to sort nearby stops and show walking distances. All other features work without it.</dd>
@@ -296,16 +302,16 @@
         <p>Please include: what you were doing, what you expected to happen, what actually happened, and if possible a screenshot.</p>
 
         <hr>
-        <p style="color: var(--secondary); font-size: 13px;">SPT is an independent app and is not affiliated with or endorsed by Sofia Urban Mobility Centre, Sofia Municipality, Sofia Traffic, ZVV or VBZ.</p>
+        <p style="color: var(--secondary); font-size: 13px;">SPT is an independent app and is not affiliated with or endorsed by Sofia Urban Mobility Centre, Sofia Municipality, Sofia Traffic, ZVV, VBZ, VVT, IVB, ÖBB or Mobilitätsverbünde Österreich.</p>
     </div>
 
     <!-- Bulgarian -->
     <div lang="bg" class="lang-content">
         <h1>Поддръжка на SPT</h1>
-        <p>Помощ и често задавани въпроси за SPT — Simple Public Transit, iOS приложението за градски транспорт в София и Цюрих.</p>
+        <p>Помощ и често задавани въпроси за SPT — Simple Public Transit, iOS приложението за градски транспорт в София, Цюрих и Тирол.</p>
 
         <h2>За приложението</h2>
-        <p>SPT — Simple Public Transit събира линии, спирки, тръгвания и планиране на пътувания за София и Цюрих върху една интерактивна карта. Позициите на наземния транспорт в София използват данни на живо; тези в Цюрих и на софийското метро се изчисляват по разписание.</p>
+        <p>SPT — Simple Public Transit събира линии, спирки, тръгвания и планиране на пътувания за София, Цюрих и Тирол върху една интерактивна карта. Позициите на наземния транспорт в София използват данни на живо; тези в Цюрих и Тирол, както и на софийското метро, се изчисляват по разписание.</p>
         <p>Разписанията се съхраняват на устройството, така че след изтеглянето им можете да разглеждате линии и спирки офлайн.</p>
 
         <h2>Често задавани въпроси</h2>
@@ -313,26 +319,32 @@
             <dt>Откъде идват данните за градския транспорт в София?</dt>
             <dd>За София приложението използва публичните GTFS данни на Sofia Traffic на адрес <code>gtfs.sofiatraffic.bg</code>, публикувани от Центъра за градска мобилност. Статичните GTFS данни предоставят спирки, линии, курсове и разписания; GTFS Realtime каналите предоставят позиции на превозните средства и актуализации на курсовете, които се използват за картата, тръгванията и информацията за закъснения. SPT е независимо приложение, затова ако официалните канали закъсняват или са непълни, това може да се отрази и в приложението.</dd>
 
-            <dt>Как да избера Цюрих?</dt>
-            <dd>Във версия 2.1.5 или по-нова отворете Настройки чрез зъбното колело на картата на София, изберете Цюрих и изчакайте изтеглянето на разписанието. Изборът на град се запазва. При избран Цюрих Настройки е достъпен като раздел.</dd>
+            <dt>Как да избера Цюрих или Тирол?</dt>
+            <dd>Отворете Настройки чрез зъбното колело на картата на София, изберете Цюрих или Тирол и изчакайте изтеглянето на разписанието. За Цюрих е необходима версия 2.1.5 или по-нова, а за Тирол — 2.1.7 или по-нова. Изборът на град се запазва. При избран Цюрих или Тирол Настройки е достъпен като раздел.</dd>
 
             <dt>Откъде идват данните за Цюрих и на живо ли са превозните средства?</dt>
             <dd>Цюрих използва <a href="https://opentransportdata.swiss/en/cookbook/timetable-cookbook/gtfs/">швейцарското национално GTFS разписание</a>, включително S-Bahn и регионални влакове, с официални цветове и налични трасета от <a href="https://data.stadt-zuerich.ch/dataset/vbz_fahrplandaten_gtfs">Stadt Zürich/ZVV</a>. Позициите се изчисляват по разписание, а не чрез GPS на живо; те не отразяват реални закъснения или извънредни отклонения. Курсовете без съответстващо трасе, включително влаковете, могат да използват прави връзки между спирките.</dd>
+
+            <dt>Какво обхваща Тирол?</dt>
+            <dd>Целия Тирол, с акцент върху Инсбрук и долината Цилертал. В Инсбрук: трамваите и градските автобуси на IVB, Stubaitalbahn до Фулпмес и Hungerburgbahn. В Цилертал: Zillertalbahn от Йенбах до Майрхофен и автобусите в долината, включително Майрхофен–Хинтертукс, Герлос/Кьонигслайтен и Инсбрук–Йенбах–Майрхофен. Извън тях: регионалните автобуси на VVT (Postbus и други превозвачи), както и S-Bahn Tirol, REX, Railjet и Nightjet на ÖBB и други влакове със спирки в Тирол. Лифтовете, включително Nordkettenbahn, не са включени, както и някои ски автобуси, например мрежата от ски автобуси в Майрхофен.</dd>
+
+            <dt>Откъде идват данните за Тирол и на живо ли са превозните средства?</dt>
+            <dd>Тирол използва официалното разписание на VVT и данните за австрийските влакове от <a href="https://data.mobilitaetsverbuende.at/">Mobilitätsverbünde Österreich</a> („Datenquelle: Mobilitätsverbünde Österreich OG – data.mobilitaetsverbuende.at“) съгласно техния <a href="https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/185237505/Terms+of+Use">лиценз</a>. SPT ги обновява всяка седмица. За Тирол все още няма отворени данни на живо: тръгванията са по разписание, а позициите на картата се изчисляват по разписанието, а не чрез GPS на живо. Закъснения, отмени и отклонения не се показват.</dd>
 
             <dt>Как да обновя данните за разписанията?</dt>
             <dd>Отворете Настройки и обновете статичните данни за избрания град. Готовите бази данни се изтеглят от <code>data.spt.fyi</code>. Това може да отнеме минута-две според връзката ви.</dd>
 
             <dt>Приложението не показва превозни средства. Какво не е наред?</dt>
-            <dd>Проверете дали сте избрали правилния град, изтеглили сте разписанието му и разглеждате неговата карта. Изключете филтъра за любими линии, за да видите всички налични превозни средства. Данните на живо за София изискват интернет; прогнозите за Цюрих зависят от активните курсове и може да липсват извън работното им време. Ако проблемът продължава, обновете разписанието от Настройки или пишете на <a href="mailto:anton.evangelatov@gmail.com">anton.evangelatov@gmail.com</a>.</dd>
+            <dd>Проверете дали сте избрали правилния град, изтеглили сте разписанието му и разглеждате неговата карта. Изключете филтъра за любими линии, за да видите всички налични превозни средства. Данните на живо за София изискват интернет; прогнозите за Цюрих и Тирол зависят от активните курсове и може да липсват извън работното им време. Ако проблемът продължава, обновете разписанието от Настройки или пишете на <a href="mailto:anton.evangelatov@gmail.com">anton.evangelatov@gmail.com</a>.</dd>
 
             <dt>Как работят любимите линии?</dt>
             <dd>Натиснете иконата със звезда на картата, за да отворите екрана за избор на любими линии. Маркирайте линиите, които ви интересуват, след което включете филтъра, за да показвате само тези превозни средства на картата, в близките спирки и в списъците с тръгвания. Можете също да маркирате и демаркирате линии от страницата с детайли за линията.</dd>
 
             <dt>Защо виждам превозни средства, след като са напуснали спирка?</dt>
-            <dd>В София актуализациите на живо могат да закъснеят и вече преминало превозно средство да се показва за кратко. Позициите и тръгванията в Цюрих са прогнозни, по разписание, и могат да се различават от реалното движение.</dd>
+            <dd>В София актуализациите на живо могат да закъснеят и вече преминало превозно средство да се показва за кратко. Позициите и тръгванията в Цюрих и Тирол са прогнозни, по разписание, и могат да се различават от реалното движение.</dd>
 
             <dt>Защо някои тръгвания показват „По разписание", а други показват часове на живо?</dt>
-            <dd>Часовете на живо използват наличните актуализации на курсовете в София. „По разписание“ означава, че часът идва от разписанието. Цюрих използва часове по разписание; движещо се превозно средство на картата му не означава проследяване на живо.</dd>
+            <dd>Часовете на живо използват наличните актуализации на курсовете в София. „По разписание“ означава, че часът идва от разписанието. Цюрих и Тирол използват часове по разписание; движещо се превозно средство на картите им не означава проследяване на живо.</dd>
 
             <dt>Мога ли да използвам приложението без достъп до локация?</dt>
             <dd>Да. Достъпът до локация се използва само за сортиране на близки спирки и показване на разстояния за ходене пеша. Всички останали функции работят без него.</dd>
@@ -346,7 +358,7 @@
         <p>Моля, включете: какво сте правили, какво сте очаквали да се случи, какво всъщност се е случило и ако е възможно — снимка на екрана.</p>
 
         <hr>
-        <p style="color: var(--secondary); font-size: 13px;">SPT е независимо приложение и не е свързано с или одобрено от Център за градска мобилност, Столична община, Sofia Traffic, ZVV или VBZ.</p>
+        <p style="color: var(--secondary); font-size: 13px;">SPT е независимо приложение и не е свързано с или одобрено от Център за градска мобилност, Столична община, Sofia Traffic, ZVV, VBZ, VVT, IVB, ÖBB или Mobilitätsverbünde Österreich.</p>
     </div>
 
 </div>
